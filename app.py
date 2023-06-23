@@ -7,5 +7,6 @@ app = Flask(__name__)
 def index():
     return main.extract_keyworld()
 
-app.run(host="0.0.0.0")
+if __name__ = "__main__":
+    app.run(host="0.0.0.0", debug=True, port=5000)
 
