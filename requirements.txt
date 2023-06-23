@@ -1,0 +1,7 @@
+setuptools~=40.8.0
+numpy~=1.21.6
+scipy~=1.7.3
+docx2pdf~=0.1.8
+tika~=2.6.0
+PyKomoran~=0.1.6.post1
+scikit-learn~=1.0.2
