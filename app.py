@@ -7,5 +7,5 @@ app = Flask(__name__)
 def index():
     return main.extract_keyworld()
 
-app.run(host="0.0.0.0:5000")
+app.run(host="0.0.0.0")
 
