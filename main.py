@@ -8,12 +8,12 @@ from textrank import KeysentenceSummarizer
 # WORD -> PDF 변환
 #convert("test/sample.docx", "test/sample.pdf")
 
-def extract_keyworld():
+def extract_keyworld(contents):
     result = []
 
     # PDF 파일에서 텍스트를 추출
-    raw_pdf = parser.from_file('test/sample1.pdf')
-    contents = raw_pdf['content']
+    #raw_pdf = parser.from_file('test/sample1.pdf')
+    #contents = raw_pdf['content']
     contents = contents.strip()
     contents = contents.replace("\n", "")
 
@@ -57,7 +57,9 @@ def extract_keyworld():
 
     # 10문장 추출
     keywords = keyword_extractor.summarize(extract_text, topk=10)
+    i = 0
     for word, rank in keywords:
-        result.append({"word": word, "rank": rank})
+        i += 1
+        result.append({"word": word, "socre": rank, "index": i})
         #print('{} ({:.3})'.format(word, rank))
     return result

@@ -1,5 +1,5 @@
 from http import HTTPStatus
-from flask import Flask, jsonify, redirect, render_template, request, url_for
+from flask import Flask, jsonify, redirect, render_template, request, url_for, json
 import main
 
 app = Flask(__name__)
@@ -15,10 +15,10 @@ def index():
 
 @app.route('/getlank', methods=['POST'])
 def post():
-    #params = request.get_json()
-    #print(params)
-    #return jsonify({"TEXT": main.extract_keyworld(), "status": HTTPStatus.OK})
-    return jsonify({"data": data, "status": HTTPStatus.OK})
+    param = request.get_json()
+    text = param['TEXT']
+    print(text)
+    return jsonify({"data": main.extract_keyworld(text)})
 
 
 if __name__ == "__main__":
