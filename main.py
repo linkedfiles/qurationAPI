@@ -1,6 +1,6 @@
 from PyKomoran import *
 from docx2pdf import convert
-from tika import parser
+#from tika import parser
 
 from textrank import KeywordSummarizer
 from textrank import KeysentenceSummarizer
