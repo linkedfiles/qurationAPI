@@ -58,14 +58,23 @@ def extract_keyworld(contents):
     # 10문장 추출
     keywords = keyword_extractor.summarize(extract_text, topk=10)
     i = 0
+    matching_standard = 0
+    matching_rate = 0
     for word, rank in keywords:
         i += 1
+
         word = word.replace(" ", "")
         word = word.strip("/NNP""NNG")
-        rank = round(rank, 3)
+        rank = round(rank, 2)
         cnt = contents_count.count(word)
 
-        result.append({"word": word, "score": rank, "rank": i, "cnt": cnt})
+        #Matching rate
+        if (i == 1):
+            matching_standard = rank * 0.01
+        matching_rate = rank / matching_standard
+
+
+        result.append({"word": word, "score": rank, "rank": i, "cnt": cnt, "matching_rate": matching_rate})
         #print('{} ({:.3})'.format(word, rank))
     return result
 
