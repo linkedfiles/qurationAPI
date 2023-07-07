@@ -21,5 +21,11 @@ def post():
     return json.dumps({"data": main.extract_keyworld(text)}, ensure_ascii=False)
 
 
+@app.route('/getlank', mehods=['POST'])
+def post():
+    param = request.get_json()
+    word_list = param['WORD']
+
+
 if __name__ == "__main__":
 	app.run(host='0.0.0.0', debug=True)

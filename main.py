@@ -6,19 +6,16 @@ from textrank import KeywordSummarizer
 from textrank import KeysentenceSummarizer
 
 # WORD -> PDF 변환
-#convert("test/sample.docx", "test/sample.pdf")
+convert("test/sample.docx", "test/sample.pdf")
 
 def extract_keyworld(contents):
     result = []
 
     # PDF 파일에서 텍스트를 추출
-    #raw_pdf = parser.from_file('test/sample1.pdf')
-    #contents = raw_pdf['content']
+    # raw_pdf = parser.from_file('test/sample1.pdf')
+    # contents = raw_pdf['content']
     contents = contents.strip()
     contents = contents.replace("\n", "")
-
-    print("PDF로부터 읽어옴...")
-    print(contents)
 
     # 사용자사전 주소
     user_dic_path = 'dic.user'
@@ -60,6 +57,10 @@ def extract_keyworld(contents):
     i = 0
     for word, rank in keywords:
         i += 1
-        result.append({"word": word, "socre": rank, "index": i})
-        #print('{} ({:.3})'.format(word, rank))
+        word = word.replace(" ", "")
+        word = word.strip("/NNP")
+        rank = round(rank, 3)
+
+        result.append({"word": word, "score": rank, "index": i})
+        print('{} ({:.3})'.format(word, rank))
     return result
