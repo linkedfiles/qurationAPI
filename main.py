@@ -58,9 +58,10 @@ def extract_keyworld(contents):
     for word, rank in keywords:
         i += 1
         word = word.replace(" ", "")
-        word = word.strip("/NNP")
+        word = word.strip("/NNP""NNG")
         rank = round(rank, 3)
+        cnt = extract_text.count(word)
 
-        result.append({"word": word, "score": rank, "index": i})
+        result.append({"word": word, "score": rank, "index": i, "cnt": cnt})
         print('{} ({:.3})'.format(word, rank))
     return result
