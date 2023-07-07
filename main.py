@@ -62,6 +62,6 @@ def extract_keyworld(contents):
         rank = round(rank, 3)
         cnt = extract_text.count(word)
 
-        result.append({"word": word, "score": rank, "index": i, "cnt": cnt})
+        result.append({"word": word, "score": rank, "rank": i, "cnt": cnt})
         print('{} ({:.3})'.format(word, rank))
     return result
