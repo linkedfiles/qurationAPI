@@ -1,12 +1,12 @@
 from PyKomoran import *
-from docx2pdf import convert
+#from docx2pdf import convert
 #from tika import parser
 
 from textrank import KeywordSummarizer
 from textrank import KeysentenceSummarizer
 
 # WORD -> PDF 변환
-convert("test/sample.docx", "test/sample.pdf")
+#convert("test/sample.docx", "test/sample.pdf")
 
 def extract_keyworld(contents):
     result = []
